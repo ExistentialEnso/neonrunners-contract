@@ -10,4 +10,12 @@ contract NeonRunnersTest is Test {
     function setUp() public {
         neonRunners = new NeonRunners();
     }
+
+    function testFailRunRunRunNoPay() public {
+        neonRunners.runRunRun(1);
+    }
+
+    function testRunRunRunMintSuccessful() public {
+        neonRunners.runRunRun{value: 0.005 ether}(1);
+    }
 }
