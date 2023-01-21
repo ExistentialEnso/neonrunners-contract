@@ -11,11 +11,25 @@ contract NeonRunnersTest is Test {
         neonRunners = new NeonRunners();
     }
 
+    function testFailRunRunRunMaxQuantityExceeded() public {
+        neonRunners.runRunRun(6);
+    }
+
     function testFailRunRunRunNoPay() public {
         neonRunners.runRunRun(1);
     }
 
     function testRunRunRunMintSuccessful() public {
         neonRunners.runRunRun{value: 0.005 ether}(1);
+    }
+
+    function testRunRunRunMint3Successful() public {
+        neonRunners.runRunRun{value: 0.015 ether}(3);
+    }
+
+    function testInstallChooms() public {
+        string memory newBaseURI = "ipfs://Qmabc123";
+        neonRunners.installChooms(newBaseURI);
+        assertEq(neonRunners.baseURI(), newBaseURI);
     }
 }
